@@ -43,16 +43,22 @@ const links = [
 </header>
 
 <script>
-  const menuToggle = document.querySelector(".primary-nav-menu-toggle");
-  const primaryMenu = document.querySelector(".primary-nav-menu");
-  const primaryHeader = document.querySelector(".primary-nav");
+  function toggleMenu() {
+    const menuToggle = document.querySelector(".primary-nav-menu-toggle");
+    const primaryMenu = document.querySelector(".primary-nav-menu");
+    const primaryHeader = document.querySelector(".primary-nav");
 
-  menuToggle?.addEventListener("click", () => {
-    primaryMenu?.toggleAttribute("data-visible");
-    primaryHeader?.toggleAttribute("data-overlay");
-    menuToggle.setAttribute(
-      "aria-expanded",
-      String(menuToggle.getAttribute("aria-expanded") !== "true")
-    );
+    menuToggle?.addEventListener("click", () => {
+      primaryMenu?.toggleAttribute("data-visible");
+      primaryHeader?.toggleAttribute("data-overlay");
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(menuToggle.getAttribute("aria-expanded") !== "true")
+      );
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    toggleMenu();
   });
 </script>
