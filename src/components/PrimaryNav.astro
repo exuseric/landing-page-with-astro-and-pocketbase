@@ -1,0 +1,58 @@
+---
+import { Icon } from "astro-icon/components";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/products", label: "Products" },
+  { href: "/services", label: "Services" },
+];
+---
+
+<header class="primary-nav content-grid">
+  <div class="primary-nav-wrapper">
+    <div class="primary-nav-actions">
+      <a class="logo" href="/">
+        <img src="src/assets/logo.svg" alt="Logo" />
+      </a>
+      <button
+        class="primary-nav-menu-toggle button"
+        aria-label="Menu Toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav-menu"
+        data-type="icon"
+      >
+        <span class="visually-hidden">Menu</span>
+        <Icon name="mdi:menu" class="menu-icon" />
+        <Icon name="mdi:close" class="close-icon" />
+      </button>
+    </div>
+    <nav class="primary-nav-menu" id="primary-nav-menu">
+      <ul class="primary-nav-menu-list" role="list">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.querySelector(".primary-nav-menu-toggle");
+  const primaryMenu = document.querySelector(".primary-nav-menu");
+  const primaryHeader = document.querySelector(".primary-nav");
+
+  menuToggle?.addEventListener("click", () => {
+    primaryMenu?.toggleAttribute("data-visible");
+    primaryHeader?.toggleAttribute("data-overlay");
+    menuToggle.setAttribute(
+      "aria-expanded",
+      String(menuToggle.getAttribute("aria-expanded") !== "true")
+    );
+  });
+</script>

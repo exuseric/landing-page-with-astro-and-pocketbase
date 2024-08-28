@@ -1,0 +1,46 @@
+---
+import { AstroSeo } from "@astrolib/seo";
+import { AstroFont } from "astro-font";
+import PrimaryNav from "../components/PrimaryNav.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <AstroFont
+      config={[
+        {
+          src: [],
+          name: "Work Sans",
+          // Google Fonts URL
+          googleFontsURL:
+            "https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap",
+          preload: true,
+          display: "swap",
+          selector: "body",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
+    <AstroSeo
+      title="Simple Usage Example"
+      description="A short description goes here."
+      additionalMetaTags={[
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1",
+        },
+      ]}
+      additionalLinkTags={[
+        {
+          rel: "stylesheet",
+          href: "src/assets/styles/global.css",
+        },
+      ]}
+    />
+  </head>
+  <body>
+    <PrimaryNav />
+    <h1>Astro</h1>
+  </body>
+</html>
