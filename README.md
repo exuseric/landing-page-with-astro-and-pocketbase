@@ -1,3 +1,4 @@
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=exuseric_landing-page-with-astro-and-pocketbase)
 # Astro Starter Kit: Minimal
 
 ```sh
